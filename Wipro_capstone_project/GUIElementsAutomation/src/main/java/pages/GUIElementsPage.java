@@ -115,8 +115,10 @@ public class GUIElementsPage {
     
     public void uploadFile() {
 
-        driver.findElement(By.id("singleFileInput"))
-                .sendKeys("C:\\Users\\HP\\OneDrive\\Desktop\\Book1.xlsx");
+        String filePath = System.getProperty("user.dir") + "\\Book1.xlsx";
+
+driver.findElement(By.id("singleFileInput"))
+      .sendKeys(filePath);
     }
 
     public void moveSlider() {
