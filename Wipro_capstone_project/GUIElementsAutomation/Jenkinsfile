@@ -1,75 +1,13 @@
+
 pipeline {
-agent any
+    agent any
 
+    stages {
 
-tools {
-    jdk 'JDK17'
-    maven 'Maven3'
-}
-
-stages {
-
-    stage('Checkout Code') {
-        steps {
-            git branch: 'main',
-                url: 'https://github.com/AryanRajJha/wipro-capstone-project.git'
+        stage('Build and Test') {
+            steps {
+                bat 'mvn clean test'
+            }
         }
     }
-
-     stage('Clean Project') {
-    steps {
-        dir('Wipro_capstone_project/GUIElementsAutomation') {
-            bat 'mvn clean'
-        }
-    }
-}
-
-stage('Compile Project') {
-    steps {
-        dir('Wipro_capstone_project/GUIElementsAutomation') {
-            bat 'mvn compile'
-        }
-    }
-}
-
-stage('Run TestNG Tests') {
-    steps {
-        dir('Wipro_capstone_project/GUIElementsAutomation') {
-            bat 'mvn test'
-        }
-    }
-}
-
-    stage('Generate Reports') {
-        steps {
-            echo 'Collecting Test Reports'
-        }
-    }
-}
-
-post {
-
-    always {
-        archiveArtifacts artifacts: 'test-output/**/*', allowEmptyArchive: true
-
-        publishHTML([
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'Wipro_capstone_project/GUIElementsAutomation/test-output',
-            reportFiles: 'emailable-report.html',
-            reportName: 'TestNG Report'
-        ])
-    }
-
-    success {
-        echo 'Tests Executed Successfully'
-    }
-
-    failure {
-        echo 'Build Failed'
-    }
-}
-
-
 }
