@@ -56,7 +56,7 @@ post {
             allowMissing: true,
             alwaysLinkToLastBuild: true,
             keepAll: true,
-            reportDir: 'test-output',
+            reportDir: 'Wipro_capstone_project/GUIElementsAutomation/test-output',
             reportFiles: 'emailable-report.html',
             reportName: 'TestNG Report'
         ])
