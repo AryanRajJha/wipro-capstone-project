@@ -1,8 +1,8 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -12,15 +12,15 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
 
-        WebDriverManager.edgedriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        EdgeOptions options = new EdgeOptions();
+        ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--headless=new");
         options.addArguments("--disable-gpu");
         options.addArguments("--window-size=1920,1080");
 
-        driver = new EdgeDriver(options);
+        driver = new ChromeDriver(options);
 
         return driver;
     }
