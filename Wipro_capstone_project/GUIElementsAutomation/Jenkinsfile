@@ -16,9 +16,9 @@ stages {
         }
     }
 
-   stage('Clean Project') {
+     stage('Clean Project') {
     steps {
-        dir('GUIElementsAutomation') {
+        dir('Wipro_capstone_project/GUIElementsAutomation') {
             bat 'mvn clean'
         }
     }
@@ -26,7 +26,7 @@ stages {
 
 stage('Compile Project') {
     steps {
-        dir('GUIElementsAutomation') {
+        dir('Wipro_capstone_project/GUIElementsAutomation') {
             bat 'mvn compile'
         }
     }
@@ -34,7 +34,7 @@ stage('Compile Project') {
 
 stage('Run TestNG Tests') {
     steps {
-        dir('GUIElementsAutomation') {
+        dir('Wipro_capstone_project/GUIElementsAutomation') {
             bat 'mvn test'
         }
     }
