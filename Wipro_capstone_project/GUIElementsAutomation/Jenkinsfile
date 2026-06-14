@@ -16,23 +16,29 @@ stages {
         }
     }
 
-    stage('Clean Project') {
-        steps {
+   stage('Clean Project') {
+    steps {
+        dir('GUIElementsAutomation') {
             bat 'mvn clean'
         }
     }
+}
 
-    stage('Compile Project') {
-        steps {
+stage('Compile Project') {
+    steps {
+        dir('GUIElementsAutomation') {
             bat 'mvn compile'
         }
     }
+}
 
-    stage('Run TestNG Tests') {
-        steps {
+stage('Run TestNG Tests') {
+    steps {
+        dir('GUIElementsAutomation') {
             bat 'mvn test'
         }
     }
+}
 
     stage('Generate Reports') {
         steps {
