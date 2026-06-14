@@ -115,11 +115,13 @@ public class GUIElementsPage {
     
     public void uploadFile() {
 
-        String filePath = System.getProperty("user.dir") + "\\Book1.xlsx";
+    String filePath = System.getProperty("user.dir") + "\\Book1.xlsx";
 
-driver.findElement(By.id("singleFileInput"))
-      .sendKeys(filePath);
-    }
+    System.out.println("Uploading file: " + filePath);
+
+    driver.findElement(By.id("singleFileInput"))
+          .sendKeys(filePath);
+}
 
     public void moveSlider() {
 
